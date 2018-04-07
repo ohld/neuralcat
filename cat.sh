@@ -69,5 +69,5 @@ COMMENT_TEXT="$(node index.js --concat)"
 echo "Generated text: "$COMMENT_TEXT
 cd ..
 
-python post_photo.py $STYLED_CAT_NAME "$COMMENT_TEXT"
+/usr/local/bin/python3.6 post_photo.py $STYLED_CAT_NAME "$COMMENT_TEXT"
 rm -f $STYLED_CAT_NAME
