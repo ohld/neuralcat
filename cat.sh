@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 WORKDIR=$(pwd)
 
 ###########################
@@ -57,6 +58,7 @@ curl -X POST -d '{
 ###########################
 #### Download a styled file
 curl -O -H 'Authorization: Simple '$ALGORITHMIA_TOKEN $HTTP_FOLDER_PATH$STYLED_CAT_PATH
+echo "Downloaded: "$STYLED_CAT_NAME
 
 ###########################
 #### Delete a styled file from styler
@@ -67,5 +69,5 @@ COMMENT_TEXT="$(node index.js --concat)"
 echo "Generated text: "$COMMENT_TEXT
 cd ..
 
-python3 post_photo.py $STYLED_CAT_NAME "$COMMENT_TEXT"
+python post_photo.py $STYLED_CAT_NAME "$COMMENT_TEXT"
 rm -f $STYLED_CAT_NAME
