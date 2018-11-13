@@ -1,8 +1,10 @@
+import os
 import sys
 from instabot import Bot
 import random
+
 bot = Bot()
-bot.login(username="neuralcat", password="thisispussyblog")
+bot.login(username=os.environ['INSTAGRAM_USERNAME'], password=os.environ['INSTAGRAM_PASSWORD'])
 
 path_to_photo = sys.argv[1]
 
@@ -14,11 +16,13 @@ if text == "":
 		"mew mew mew", 
 		"MEW!", 
 		"mew", 
-		"meouw", 
+		"meow", 
 		"nyanyanyanyanaynaynya",
 		":^_^:",
-		"MEWMEW PEWPEW PUSS PUSS OWWWWWWW",
-		"murmurmur murmur mur m u r",
+		"I liked your mew",
+		"very mew"
+		"OWWWWWWW",
+		"murmurmur murmur mur  m     u         r",
 	])
 bot.upload_photo(path_to_photo, text)
 
