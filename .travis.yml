@@ -4,6 +4,7 @@ node_js:
 python:
   - "3.6"
 install:
+  - pip install -U instabot
   - bash install.sh
 script:
   - bash cat.sh
