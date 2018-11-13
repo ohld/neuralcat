@@ -12,4 +12,4 @@ cd bizon-generator
 npm install
 cd ..
 
-pip3 install -U instabot
+pip install -U instabot
