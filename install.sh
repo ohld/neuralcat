@@ -11,5 +11,3 @@ git clone https://github.com/caffeinum/bizon-generator
 cd bizon-generator
 npm install
 cd ..
-
-pip3.6 install -U instabot
