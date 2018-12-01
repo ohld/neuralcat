@@ -8,7 +8,8 @@ WORKDIR=$(pwd)
 cd catload
 PHOTO_NAME=$(node get_cat_photo.js)
 CAT_PHOTO_PATH=$WORKDIR/catload/$PHOTO_NAME
-echo "1: Downloaded cat photo: "$CAT_PHOTO_PATH
+echo "\
+1) Downloaded cat photo: "$CAT_PHOTO_PATH
 cd ..
 
 HTTP_FOLDER_PATH='https://api.algorithmia.com/v1/connector/data/.my/'
@@ -32,7 +33,8 @@ STYLES=(
 RANDOMSEED=$$$(date +%s)
 
 RANDOMSTYLE=${STYLES[$RANDOMSEED % ${#STYLES[@]} ]}
-echo "2) Chosen neural style: "$RANDOMSTYLE
+echo "\
+2) Chosen neural style: "$RANDOMSTYLE
 
 ###########################
 #### Upload photo to style
@@ -58,7 +60,8 @@ curl -X POST -d '{
 ###########################
 #### Download a styled file
 curl -O -H 'Authorization: Simple '$ALGORITHMIA_TOKEN $HTTP_FOLDER_PATH$STYLED_CAT_PATH
-echo "3) Downloaded styled photo: "$STYLED_CAT_NAME
+echo "\
+3) Downloaded styled photo: "$STYLED_CAT_NAME
 
 ###########################
 #### Delete a styled file from styler
@@ -66,9 +69,11 @@ curl -X DELETE -H 'Authorization: Simple '$ALGORITHMIA_TOKEN $HTTP_FOLDER_PATH$S
 
 cd bizon-generator
 COMMENT_TEXT="$(node index.js --concat)"
-echo "4) Generated comment text: "$COMMENT_TEXT
+echo "\
+4) Generated comment text: "$COMMENT_TEXT
 cd ..
 
 python post_photo.py $STYLED_CAT_NAME "$COMMENT_TEXT"
 # rm -f $STYLED_CAT_NAME  # save for future debugging
-echo "5) Finished"
+echo "\
+5) Finished"
