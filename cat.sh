@@ -73,6 +73,9 @@ echo "\
 4) Generated comment text: "$COMMENT_TEXT
 cd ..
 
+# fix instabot bug
+rm -rf cookie.txt
+
 python post_photo.py $STYLED_CAT_NAME "$COMMENT_TEXT"
 # rm -f $STYLED_CAT_NAME  # save for future debugging
 echo "\
